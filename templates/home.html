@@ -1,0 +1,65 @@
+
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    {% load static %}
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="{% static 'validation.js' %}"></script>
+   
+
+
+    <title>Registration</title>
+    <!-- <script type="text/javascript">
+        function display()
+          {
+              alert("welcome");
+
+           }
+      </script>-->
+
+</head>
+<body>
+
+
+    <form style="margin-left:450px;margin-right:500px;padding-left:100px;background-color:#abf7b1" method="POST" name="myform" onsubmit="return display()">
+        {%csrf_token%}
+        <h1>Registration Form</h1>
+        <div class="mb-3" style="width: 400px">
+            <label for="name" class="form-label">Name</label>
+            <input type="text" placeholder="Enter Your Name" name="name" class="form-control" id="name" required>
+
+        </div>
+        <div class="mb-3" style="width: 400px">
+            <label for="exampleInputEmail1" class="form-label">Email address</label>
+            <input type="email" placeholder="ENter email" name="email" class="form-control" id="email" aria-describedby="emailHelp" required>
+            <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+        </div>
+        <div class="mb-3" style="width: 400px">
+            <label for="age" class="form-label">Age</label>
+            <input type="number" class="form-control" name="age" id="age" placeholder="Enter your age" required>
+
+        </div>
+        <div class="mb-3" style="width: 400px">
+            <label for="Date" class="form-label">Date Of Birth</label>
+            <input type="date" class="form-control" name="dateofbirth" id="dateofbirth" placeholder="enter date of boirt" required>
+
+        </div>
+        <div style="margin-top:50px;">
+
+            <button class="btn btn-primary " type="submit">Submit form</button>
+            <a href="{% url 'dataretrive' %}" class="btn btn-warning ml-5" style="margin-left:200px">Data display</a>
+
+        </div>
+
+    </form>
+    {%if valid %}
+    <p style="margin-left:450px;color:red;font-size:40px;">{{valid}}</p>
+    {%endif%}
+
+</body>
+</html>
